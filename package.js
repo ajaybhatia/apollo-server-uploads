@@ -1,5 +1,5 @@
 Package.describe({
-  name: "apollo-server-uploads",
+  name: "ajaybhatia:apollo-server-uploads",
   version: "0.0.1",
   // Brief, one-line summary of the package.
   summary:
