@@ -39,20 +39,22 @@ export const removeFile = filename => {
   fs.unlinkSync(`${MULTIMEDIA_DIR}/${filename}`);
 };
 
-// Read File from FS
-WebApp.connectHandlers.use("/multimedia", (req, res, next) => {
-  const path = `${MULTIMEDIA_DIR}/${req.query.name}`;
-  const contentType = /\.(gif|jpg|jpeg|tiff|png)$/i.test(req.query.name)
-    ? "image/*"
-    : "video/*";
-  fs.readFile(path, (error, data) => {
-    if (data) {
-      res.writeHead(200, {
-        "Content-Type": contentType
-      });
-      res.end(data);
-    } else {
-      throw error;
-    }
+if (Meteor.isServer) {
+  // Read File from FS
+  WebApp.connectHandlers.use("/multimedia", (req, res, next) => {
+    const path = `${MULTIMEDIA_DIR}/${req.query.name}`;
+    const contentType = /\.(gif|jpg|jpeg|tiff|png)$/i.test(req.query.name)
+      ? "image/*"
+      : "video/*";
+    fs.readFile(path, (error, data) => {
+      if (data) {
+        res.writeHead(200, {
+          "Content-Type": contentType
+        });
+        res.end(data);
+      } else {
+        throw error;
+      }
+    });
   });
-});
+}
