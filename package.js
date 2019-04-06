@@ -1,6 +1,6 @@
 Package.describe({
   name: "ajaybhatia:apollo-server-uploads",
-  version: "0.0.2",
+  version: "0.0.3",
   // Brief, one-line summary of the package.
   summary:
     "Uploading of files to filesystem of the apollo server (graphql) without using any external package",
@@ -13,6 +13,6 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom("1.8.1");
-  api.use("ecmascript");
+  api.use(["ecmascript", "webapp", "webapp-hashing"]);
   api.mainModule("apollo-server-uploads.js");
 });
