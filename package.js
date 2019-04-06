@@ -1,6 +1,6 @@
 Package.describe({
   name: "ajaybhatia:apollo-server-uploads",
-  version: "0.0.1",
+  version: "0.0.2",
   // Brief, one-line summary of the package.
   summary:
     "Uploading of files to filesystem of the apollo server (graphql) without using any external package",
